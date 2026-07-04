@@ -1,108 +1,19 @@
-## System Architecture
+# Entity Relationship (ER) Diagram
 
-### Description
+## Description
 
-In this architecture diagram:
+The **RK Health ER Diagram** serves as the structural foundation of the system by illustrating how the major healthcare entities interact with one another. The core entities include **Patients, Appointments, Medications, Health Reports, AI Summaries, and Reminder Logs**. These entities work together to provide an efficient and centralized healthcare management platform.
 
-### Frontend
+The **Patient** entity is the primary component of the system. Each patient can have multiple **Appointments**, allowing users to schedule and manage doctor visits. Every appointment stores details such as the doctor's name, appointment date, time, visit notes, and appointment status.
 
-The **Frontend** section represents the user interface developed using **HTML, CSS, and JavaScript**. It provides an interactive dashboard where users can manage healthcare information.
+The **Medication** entity manages prescribed medicines for each patient. It stores medication names, dosage information, reminder schedules, and associated contact details. Medication records are linked to patients, enabling the system to generate timely reminders through the Twilio SMS service.
 
-Frontend components include:
+The **AI Summary** entity stores patient-friendly healthcare summaries generated using the **Groq API** with the **Llama 3.3 70B Versatile** model. These summaries are created from appointment notes and visit information, helping patients better understand their medical conditions and follow-up recommendations.
 
-- Login Page
-- Home Dashboard
-- Add Patient Entry
-- Appointment Management
-- Medication Management
-- AI Health Summary Viewer
-- Health Report Dashboard
-- Reminder History
-- Notification System
+The **Health Report** entity consolidates appointment history, medication schedules, reminder status, AI-generated summaries, and patient information into a comprehensive report. These reports provide users with an organized overview of their healthcare records.
 
----
+The **Reminder Log** entity tracks all SMS reminders sent for appointments and medications. It records reminder status, delivery information, timestamps, and notification history, ensuring effective reminder management.
 
-### Backend
+The relationships among these entities closely represent real-world healthcare workflows. A single patient can have multiple appointments, multiple medications, several AI-generated summaries, and multiple reminder records. Each appointment may generate one AI summary and contribute to one or more health reports. Medication schedules are connected to reminder logs to ensure timely notifications.
 
-The **Backend** section is implemented using **Google Apps Script**, which processes all application requests and communicates with external services.
-
-Backend functions include:
-
-- `doGet(e)` – Loads the application.
-- `addLog()` – Stores patient appointments and medication records.
-- `getLogs()` – Retrieves healthcare records.
-- `updateLog()` – Updates patient information.
-- `deleteLog()` – Deletes healthcare records.
-- `getStats()` – Calculates dashboard statistics.
-- `generateSummary()` – Generates AI-powered healthcare summaries using the Groq API.
-- `sendSMS()` – Sends medication and appointment reminders through Twilio.
-- `runOnce()` – Performs scheduled backend operations and initialization.
-
-The backend also integrates with:
-
-- Google Sheets
-- Groq AI API
-- Twilio SMS API
-- Google Calendar API
-
----
-
-### Database
-
-The **Database** section is implemented using **Google Sheets**, which acts as the cloud database for the application.
-
-It stores:
-
-- Patient Records
-- Appointment Details
-- Medication Schedules
-- Reminder Status
-- AI Health Summaries
-- Health Reports
-- Activity Logs
-- Timestamps
-
----
-
-### External Services
-
-The application integrates with several cloud services:
-
-- **Groq API** – Generates AI-powered patient-friendly health summaries.
-- **Twilio SMS API** – Sends medication and appointment reminder notifications.
-- **Google Calendar** – Creates appointment events and reminder links.
-- **Google Sheets** – Stores all healthcare records securely.
-
----
-
-### Application Workflow
-
-```text
-User
-   │
-   ▼
-Frontend Dashboard
-(HTML • CSS • JavaScript)
-   │
-   ▼
-Google Apps Script Backend
-   │
-   ├── Patient Management
-   ├── Appointment Management
-   ├── Medication Management
-   ├── AI Summary Generation
-   ├── Report Generation
-   └── SMS Reminder Service
-   │
-   ▼
-Google Sheets Database
-   │
-   ├───────────────┬─────────────────┐
-   ▼               ▼                 ▼
-Groq AI      Twilio SMS      Google Calendar
-   │               │                 │
-   └───────────────┴─────────────────┘
-                   │
-                   ▼
-          RK Health Dashboard
-```
+Overall, the ER diagram demonstrates the complete healthcare management workflow of RK Health by connecting patient records, appointments, medication management, AI-powered health summaries, cloud storage, SMS notifications, and reporting into a unified and scalable cloud-based system.
