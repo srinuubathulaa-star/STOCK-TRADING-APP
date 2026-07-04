@@ -1,193 +1,196 @@
-# Running the Application
+# Website Pages
 
-Follow the steps below to run the **SB Stocks** application locally.
-
----
-
-# Step 1: Set Up the Frontend (React Application)
-
-## Open the Client Folder
-
-Open a terminal and navigate to the client directory.
-
-```bash
-cd client
-```
+The **SB Stocks** application provides multiple web pages that enable users and administrators to perform stock trading simulation activities efficiently.
 
 ---
 
-## Install Dependencies
+# Landing Page
 
-Install all required packages.
+The Landing Page is the first page users see when visiting the application.
 
-```bash
-npm install
-```
+### Features
+
+- Application introduction
+- Project overview
+- Feature highlights
+- Navigation to Login and Registration
+- Responsive design
+- Call-to-action buttons
 
 ---
 
-## Start the React Development Server
+# Registration Page
 
-Run the following command:
+The Registration Page allows new users to create an account.
 
-```bash
-npm run dev
-```
+### Features
 
-The frontend application will be available at:
+- Username
+- Email Address
+- Contact Number
+- Password
+- Confirm Password
+- Form Validation
+- Secure Account Creation
+
+---
+
+# Login Page
+
+The Login Page authenticates registered users.
+
+### Features
+
+- Email Login
+- Password Authentication
+- Remember Me option
+- Forgot Password
+- Secure User Authentication
+- Redirect to Dashboard
+
+---
+
+# User Dashboard
+
+After logging in, users are redirected to the dashboard.
+
+### Features
+
+- Portfolio Overview
+- Virtual Balance
+- Recent Transactions
+- Stock Market Summary
+- Performance Charts
+- Navigation Menu
+
+---
+
+# Stock Listings Page
+
+Users can browse available stocks.
+
+### Features
+
+- Search Stocks
+- Filter Stocks
+- View Company Information
+- Real-Time Prices
+- Historical Market Data
+
+---
+
+# Portfolio Page
+
+Users can manage their virtual investments.
+
+### Features
+
+- Create Portfolio
+- View Holdings
+- Portfolio Performance
+- Profit & Loss
+- Portfolio Statistics
+
+---
+
+# Trading Page
+
+Allows users to perform paper trading.
+
+### Features
+
+- Buy Stocks
+- Sell Stocks
+- Order Confirmation
+- Live Portfolio Updates
+
+---
+
+# Transactions Page
+
+Displays complete transaction history.
+
+### Features
+
+- Buy History
+- Sell History
+- Transaction Details
+- Date & Time
+- Search Transactions
+
+---
+
+# Admin Dashboard
+
+The administrator manages the overall system.
+
+### Features
+
+- Dashboard Overview
+- User Management
+- Stock Management
+- Transaction Monitoring
+- System Statistics
+- Application Analytics
+
+---
+
+# Orders (Admin)
+
+The Orders page allows administrators to monitor all stock orders.
+
+### Features
+
+- View Buy Orders
+- View Sell Orders
+- Order Status
+- User Information
+- Stock Information
+- Order Amount
+- Transaction History
+
+---
+
+# Website Navigation
 
 ```text
-http://localhost:5173
+Landing Page
+      │
+      ▼
+Registration Page
+      │
+      ▼
+Login Page
+      │
+      ▼
+User Dashboard
+      │
+ ┌────┼──────────────┐
+ ▼    ▼              ▼
+Stocks Portfolio Transactions
+ │      │             │
+ └──────┼─────────────┘
+        ▼
+    Trading Page
+        │
+        ▼
+ Admin Dashboard
+        │
+        ▼
+ Orders (Admin)
 ```
-
----
-
-# Step 2: Set Up the Backend (Express Server)
-
-Open a new terminal window or split the existing terminal.
-
-Navigate to the server directory.
-
-```bash
-cd ../server
-```
-
----
-
-## Install Backend Dependencies
-
-```bash
-npm install
-```
-
----
-
-# Step 3: Configure Environment Variables
-
-Inside the **server** folder, create a file named:
-
-```text
-.env
-```
-
-Add the required environment variables.
-
-Example:
-
-```env
-PORT=8000
-
-MONGO_URI=mongodb://localhost:27017/sbstocks
-
-JWT_SECRET=your_jwt_secret
-
-API_KEY=your_api_key
-```
-
-If you are using MongoDB Atlas:
-
-```env
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/sbstocks
-```
-
----
-
-# Step 4: Start the Backend Server
-
-Run the backend using Nodemon:
-
-```bash
-nodemon index.js
-```
-
-or
-
-```bash
-npm run dev
-```
-
-The backend server will start at:
-
-```text
-http://localhost:8000
-```
-
----
-
-# Project Startup Workflow
-
-```text
-Open Terminal
-      │
-      ▼
-cd client
-      │
-      ▼
-npm install
-      │
-      ▼
-npm run dev
-      │
-      ▼
-Frontend Running
-      │
-      ▼
-Open New Terminal
-      │
-      ▼
-cd server
-      │
-      ▼
-npm install
-      │
-      ▼
-Configure .env
-      │
-      ▼
-nodemon index.js
-      │
-      ▼
-Backend Running
-      │
-      ▼
-Connect MongoDB
-      │
-      ▼
-Application Ready
-```
-
----
-
-# Verify the Setup
-
-Ensure that:
-
-- ✅ React application loads successfully.
-- ✅ Express server starts without errors.
-- ✅ MongoDB connection is established.
-- ✅ Environment variables are loaded correctly.
-- ✅ API endpoints are accessible.
-- ✅ Frontend communicates with the backend.
-
----
-
-# Technologies Used
-
-- React
-- Vite
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- Nodemon
 
 ---
 
 # Expected Outcome
 
-After completing these steps:
+The application provides:
 
-- The frontend runs on **http://localhost:5173**.
-- The backend runs on **http://localhost:8000**.
-- MongoDB is connected successfully.
-- The SB Stocks application is ready for development and testing.
+- Secure user registration and login
+- User-friendly dashboard
+- Real-time stock browsing
+- Virtual portfolio management
+- Paper trading functionality
+- Transaction history tracking
+- Administrative management
+- Responsive interface for desktop and mobile users
