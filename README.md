@@ -1,19 +1,89 @@
-# Entity Relationship (ER) Diagram
+# Features
 
-## Description
+## User Registration & Authentication
 
-The **RK Health ER Diagram** serves as the structural foundation of the system by illustrating how the major healthcare entities interact with one another. The core entities include **Patients, Appointments, Medications, Health Reports, AI Summaries, and Reminder Logs**. These entities work together to provide an efficient and centralized healthcare management platform.
+- Secure user registration and login functionality.
+- Personalized user dashboards.
+- Protected authentication system.
+- Secure session management.
 
-The **Patient** entity is the primary component of the system. Each patient can have multiple **Appointments**, allowing users to schedule and manage doctor visits. Every appointment stores details such as the doctor's name, appointment date, time, visit notes, and appointment status.
+---
 
-The **Medication** entity manages prescribed medicines for each patient. It stores medication names, dosage information, reminder schedules, and associated contact details. Medication records are linked to patients, enabling the system to generate timely reminders through the Twilio SMS service.
+## Real-Time Market Data
 
-The **AI Summary** entity stores patient-friendly healthcare summaries generated using the **Groq API** with the **Llama 3.3 70B Versatile** model. These summaries are created from appointment notes and visit information, helping patients better understand their medical conditions and follow-up recommendations.
+- Live US stock market prices.
+- Real-time market updates.
+- Current stock trends.
+- Accurate trading simulation using live data.
 
-The **Health Report** entity consolidates appointment history, medication schedules, reminder status, AI-generated summaries, and patient information into a comprehensive report. These reports provide users with an organized overview of their healthcare records.
+---
 
-The **Reminder Log** entity tracks all SMS reminders sent for appointments and medications. It records reminder status, delivery information, timestamps, and notification history, ensuring effective reminder management.
+## Historical Data & Trends
 
-The relationships among these entities closely represent real-world healthcare workflows. A single patient can have multiple appointments, multiple medications, several AI-generated summaries, and multiple reminder records. Each appointment may generate one AI summary and contribute to one or more health reports. Medication schedules are connected to reminder logs to ensure timely notifications.
+- View historical stock price data.
+- Analyze stock performance over different time periods.
+- Compare historical trends.
+- Support strategy development through historical analysis.
 
-Overall, the ER diagram demonstrates the complete healthcare management workflow of RK Health by connecting patient records, appointments, medication management, AI-powered health summaries, cloud storage, SMS notifications, and reporting into a unified and scalable cloud-based system.
+---
+
+## Virtual Portfolios
+
+- Create multiple virtual investment portfolios.
+- Add and manage different stocks.
+- Monitor portfolio growth.
+- Track profits and losses.
+- View portfolio performance statistics.
+
+---
+
+## Transaction Management
+
+- Record buy and sell transactions.
+- Maintain complete transaction history.
+- Associate transactions with individual users.
+- Track investment activities.
+- Display transaction timestamps and details.
+
+---
+
+## Comprehensive Stock Listings
+
+- Browse a wide range of US-listed stocks.
+- Search stocks by company name or ticker symbol.
+- View stock details and current prices.
+- Access company information.
+
+---
+
+## Strategy Testing & Analysis
+
+- Test investment strategies without financial risk.
+- Analyze portfolio performance.
+- Compare different investment approaches.
+- Evaluate trading decisions using historical and live market data.
+
+---
+
+## User-Friendly Interface
+
+- Clean and responsive user interface.
+- Easy navigation across all modules.
+- Interactive dashboard.
+- Mobile-friendly design.
+- Fast and intuitive user experience.
+
+---
+
+# Key Benefits
+
+- Secure Authentication
+- Real-Time Market Simulation
+- Historical Market Analysis
+- Virtual Portfolio Management
+- Transaction Tracking
+- Performance Monitoring
+- Strategy Evaluation
+- Responsive Web Design
+- Beginner-Friendly Interface
+- Educational Trading Environment
