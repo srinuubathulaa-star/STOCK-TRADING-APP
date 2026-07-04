@@ -1,27 +1,93 @@
-Description
-The SB Stocks application follows the Model-View-Controller (MVC) architectural pattern, a software design approach that separates an application into three interconnected layers. This separation allows for modularity, easier maintenance, and scalability.
+# Project Setup
 
-Model Layer (Data Layer)
+Before starting development, organize the project directory by creating separate folders for the frontend and backend.
 
-The Model layer is responsible for handling all data-related logic. This includes the definition of data schemas and the operations performed on the database using those schemas. The models are implemented using Mongoose, which provides a schema-based solution to model application data for MongoDB.
+## Step 1: Create the Project Folder
 
-Controller Layer
+Create a new folder for the project.
 
-The Controller layer acts as an intermediary between the view (routes) and the model. It receives incoming requests, processes the input (which may include validation or transformation), calls the appropriate methods from the model, and then returns a response to the client.
+Example:
 
-View Layer (Routing Layer)
+```text
+RK-Health/
+```
 
-In the context of a backend REST API, the View is implemented as the routing layer, where various endpoints are defined. These endpoints determine how the backend responds to different HTTP requests (GET, POST, PUT, DELETE) and are responsible for invoking the appropriate controller functions.
+---
 
-Advantages of Using MVC in This Project
+## Step 2: Create Frontend Folder
 
-Separation of Concerns: Each layer has a clearly defined responsibility, improving readability and maintainability.
+Inside the project folder, create a folder named:
 
-Scalability: New features can be added easily by creating new routes, controllers, and models.
+```text
+Client
+```
 
-Reusability: Logic in controllers and models can be reused across multiple parts of the application.
+This folder will contain all frontend files such as:
 
-Testing: Each layer can be tested independently, especially the controllers and models.
+- HTML
+- CSS
+- JavaScript
+- Images
+- Assets
 
-Collaboration-Friendly: Multiple developers can work simultaneously on different layers without conflict.
+---
 
+## Step 3: Create Backend Folder
+
+Inside the project folder, create another folder named:
+
+```text
+Server
+```
+
+This folder will contain all backend files such as:
+
+- Google Apps Script
+- Configuration files
+- API logic
+- Backend utilities
+
+---
+
+## Step 4: Project Structure
+
+After creating the folders, your project structure should look like:
+
+```text
+RK-Health/
+│
+├── Client/
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   ├── config.js
+│   └── assets/
+│
+├── Server/
+│   ├── Code.gs
+│   ├── appsscript.json
+│   └── utils.gs
+│
+├── README.md
+└── .gitignore
+```
+
+---
+
+## Step 5: Open the Project in Visual Studio Code
+
+1. Open **Visual Studio Code**.
+2. Select **File → Open Folder**.
+3. Choose the **RK-Health** project folder.
+4. Click **Open**.
+
+The project is now ready for development.
+
+---
+
+## Expected Outcome
+
+- Project folder created successfully.
+- Separate **Client** and **Server** directories organized.
+- Frontend and backend code managed independently.
+- Project opened in Visual Studio Code and ready for development.
