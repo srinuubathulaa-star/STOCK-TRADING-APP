@@ -1,120 +1,289 @@
-# Backend Setup
+# Backend Project Structure
 
-This section explains how to initialize the backend for the **RK Health – Smart Patient Appointment & Medication Reminder System** using Node.js.
-
----
-
-## Step 1: Open the Server Folder
-
-Open the **Server** folder in Visual Studio Code.
-
-Open the integrated terminal by selecting:
-
-```text
-Terminal → New Terminal
-```
+The backend is organized into multiple folders to separate configuration, business logic, database models, middleware, and API routes, making the application modular and easy to maintain.
 
 ---
 
-## Step 2: Initialize the Node.js Project
+## Config
 
-Run the following command to create a `package.json` file:
+### db.js
 
-```bash
-npm init -y
-```
+Handles the database connection and configuration.
 
-This command initializes the backend project with default settings.
+**Responsibilities**
 
----
-
-## Step 3: Create the Main Server File
-
-Create a file named:
-
-```text
-server.js
-```
-
-This file serves as the entry point for the backend application.
+- Connect to MongoDB database
+- Handle database connection errors
+- Export database connection
 
 ---
 
-## Step 4: Create Project Folders
+## Controllers
 
-Create the following folders inside the **Server** directory:
+### appointmentController.js
 
-```text
-models
-controllers
-routes
-```
+Handles appointment-related operations.
 
-### Folder Purpose
+**Responsibilities**
 
-**models/**
-
-Contains database models and schema definitions.
-
-**controllers/**
-
-Contains business logic and request handling functions.
-
-**routes/**
-
-Contains API route definitions and endpoint mappings.
+- Create appointments
+- Update appointments
+- Delete appointments
+- Retrieve appointment records
 
 ---
 
-## Step 5: Backend Project Structure
+### medicationController.js
 
-Your backend directory should look like:
+Handles medication management.
+
+**Responsibilities**
+
+- Add medications
+- Update medication schedules
+- Delete medication records
+- Retrieve medication information
+
+---
+
+### reportController.js
+
+Handles health report generation.
+
+**Responsibilities**
+
+- Generate patient reports
+- Retrieve report history
+- Export reports
+
+---
+
+### summaryController.js
+
+Handles AI summary generation.
+
+**Responsibilities**
+
+- Prepare appointment notes
+- Send requests to the Groq API
+- Store AI-generated summaries
+
+---
+
+### userController.js
+
+Handles user management.
+
+**Responsibilities**
+
+- User registration
+- User login
+- User profile management
+- Password validation
+
+---
+
+## Middlewares
+
+### authMiddleware.js
+
+Provides authentication and authorization.
+
+**Responsibilities**
+
+- Verify user authentication
+- Protect private routes
+- Validate access tokens
+
+---
+
+## Models
+
+### appointmentModel.js
+
+Defines the Appointment schema.
+
+Stores:
+
+- Patient Name
+- Doctor Name
+- Appointment Date
+- Appointment Time
+- Visit Notes
+- Status
+
+---
+
+### medicationModel.js
+
+Defines the Medication schema.
+
+Stores:
+
+- Medicine Name
+- Dosage
+- Reminder Time
+- Phone Number
+- Status
+
+---
+
+### reportModel.js
+
+Defines the Health Report schema.
+
+Stores:
+
+- Patient Details
+- Appointment History
+- Medication Records
+- AI Summary
+- Report Date
+
+---
+
+### userModel.js
+
+Defines the User schema.
+
+Stores:
+
+- Name
+- Email
+- Password
+- Phone Number
+- Role
+
+---
+
+## Routes
+
+### appointmentRoute.js
+
+API endpoints for appointment management.
+
+---
+
+### medicationRoute.js
+
+API endpoints for medication management.
+
+---
+
+### reportRoute.js
+
+API endpoints for health report generation.
+
+---
+
+### summaryRoute.js
+
+API endpoints for AI health summary generation.
+
+---
+
+### userRoute.js
+
+API endpoints for user authentication and profile management.
+
+---
+
+## Root Files
+
+### index.js
+
+Main server entry point.
+
+Responsibilities:
+
+- Initialize Express
+- Configure middleware
+- Connect database
+- Register API routes
+- Start server
+
+---
+
+### package.json
+
+Contains:
+
+- Project information
+- Dependencies
+- Scripts
+- Version information
+
+---
+
+### package-lock.json
+
+Automatically generated file that locks dependency versions for consistent installations.
+
+---
+
+### schemas.js
+
+Exports all application schema definitions from a single location for easier imports and maintenance.
+
+---
+
+# Backend Folder Structure
 
 ```text
 Server/
 │
+├── config/
+│   └── db.js
+│
 ├── controllers/
+│   ├── appointmentController.js
+│   ├── medicationController.js
+│   ├── reportController.js
+│   ├── summaryController.js
+│   └── userController.js
+│
+├── middlewares/
+│   └── authMiddleware.js
 │
 ├── models/
+│   ├── appointmentModel.js
+│   ├── medicationModel.js
+│   ├── reportModel.js
+│   └── userModel.js
 │
 ├── routes/
+│   ├── appointmentRoute.js
+│   ├── medicationRoute.js
+│   ├── reportRoute.js
+│   ├── summaryRoute.js
+│   └── userRoute.js
 │
-├── server.js
-│
+├── index.js
+├── schemas.js
 ├── package.json
-│
 └── package-lock.json
 ```
 
 ---
 
-## Step 6: Verify the Setup
-
-Ensure that:
-
-- ✅ `package.json` is created successfully.
-- ✅ `server.js` exists.
-- ✅ `models` folder is created.
-- ✅ `controllers` folder is created.
-- ✅ `routes` folder is created.
-- ✅ Backend project structure is organized correctly.
-
----
-
-## Technologies Used
+# Technologies Used
 
 - Node.js
-- npm
-- JavaScript (ES6)
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Groq API
+- Twilio API
 
 ---
 
-## Expected Outcome
+# Benefits
 
-After completing these steps:
-
-- The backend project is initialized.
-- `package.json` is created.
-- The main server entry file (`server.js`) is ready.
-- Project folders are organized for scalable backend development.
-- The RK Health backend is prepared for implementing APIs and business logic.
+- Modular architecture
+- Easy maintenance
+- Scalable backend
+- Secure authentication
+- Organized API structure
+- Clear separation of concerns
+- Cloud-ready deployment
