@@ -1,12 +1,12 @@
-# React Frontend Setup
+# Backend Setup
 
-This section explains how to set up the React frontend for the **RK Health – Smart Patient Appointment & Medication Reminder System** using Vite.
+This section explains how to initialize the backend for the **RK Health – Smart Patient Appointment & Medication Reminder System** using Node.js.
 
 ---
 
-## Step 1: Open the Client Folder
+## Step 1: Open the Server Folder
 
-Open the **Client** folder in Visual Studio Code.
+Open the **Server** folder in Visual Studio Code.
 
 Open the integrated terminal by selecting:
 
@@ -16,124 +16,105 @@ Terminal → New Terminal
 
 ---
 
-## Step 2: Create a React Project Using Vite
+## Step 2: Initialize the Node.js Project
 
-Run the following command inside the **Client** folder:
-
-```bash
-npm create vite@latest . -- --template react
-```
-
----
-
-## Step 3: Select the Framework
-
-When prompted, select:
-
-```text
-Framework:
-React
-```
-
----
-
-## Step 4: Select the Variant
-
-Choose the JavaScript variant:
-
-```text
-Variant:
-JavaScript
-```
-
----
-
-## Step 5: Install Project Dependencies
-
-Install all required packages:
+Run the following command to create a `package.json` file:
 
 ```bash
-npm install
+npm init -y
 ```
+
+This command initializes the backend project with default settings.
 
 ---
 
-## Step 6: Start the Development Server
+## Step 3: Create the Main Server File
 
-Run the following command:
-
-```bash
-npm run dev
-```
-
----
-
-## Step 7: Open the Application
-
-After the server starts successfully, Vite will display a local development URL similar to:
+Create a file named:
 
 ```text
-Local: http://localhost:5173/
+server.js
 ```
 
-Open the URL in your web browser to view the application.
+This file serves as the entry point for the backend application.
 
 ---
 
-# Project Structure
+## Step 4: Create Project Folders
+
+Create the following folders inside the **Server** directory:
 
 ```text
-RK-Health/
+models
+controllers
+routes
+```
+
+### Folder Purpose
+
+**models/**
+
+Contains database models and schema definitions.
+
+**controllers/**
+
+Contains business logic and request handling functions.
+
+**routes/**
+
+Contains API route definitions and endpoint mappings.
+
+---
+
+## Step 5: Backend Project Structure
+
+Your backend directory should look like:
+
+```text
+Server/
 │
-├── Client/
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   │
-│   ├── package.json
-│   ├── vite.config.js
-│   └── index.html
+├── controllers/
 │
-├── Server/
+├── models/
 │
-├── README.md
-└── .gitignore
+├── routes/
+│
+├── server.js
+│
+├── package.json
+│
+└── package-lock.json
 ```
 
 ---
 
-# Verify the Setup
+## Step 6: Verify the Setup
 
 Ensure that:
 
-- ✅ React project is created successfully.
-- ✅ All npm packages are installed.
-- ✅ Vite development server starts without errors.
-- ✅ The application loads in the browser.
-- ✅ Hot Module Replacement (HMR) works correctly.
+- ✅ `package.json` is created successfully.
+- ✅ `server.js` exists.
+- ✅ `models` folder is created.
+- ✅ `controllers` folder is created.
+- ✅ `routes` folder is created.
+- ✅ Backend project structure is organized correctly.
 
 ---
 
-# Technologies Used
+## Technologies Used
 
-- React
-- Vite
-- JavaScript (ES6+)
 - Node.js
 - npm
+- JavaScript (ES6)
 
 ---
 
-# Expected Outcome
+## Expected Outcome
 
 After completing these steps:
 
-- A React application is created using Vite.
-- All dependencies are installed.
-- The development server is running successfully.
-- The RK Health frontend is ready for further development.
+- The backend project is initialized.
+- `package.json` is created.
+- The main server entry file (`server.js`) is ready.
+- Project folders are organized for scalable backend development.
+- The RK Health backend is prepared for implementing APIs and business logic.
