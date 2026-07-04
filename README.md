@@ -1,77 +1,174 @@
-# System Roles
+# Application Workflow
 
-## 1. User (Patient)
+## 1. Entry Point
 
-The Patient is the primary user of the RK Health application.
-
-### Responsibilities
-
-- Register and securely log in to the application.
-- Manage personal healthcare information.
-- Schedule doctor appointments.
-- Add and manage medication schedules.
-- View appointment history and medication records.
-- Receive SMS reminders for appointments and medications.
-- Generate AI-powered health summaries.
-- View and download health reports.
-- Add appointments to Google Calendar.
-- Monitor healthcare activities through the dashboard.
+The user visits the **RK Health** web application using a desktop, tablet, or mobile browser.
 
 ---
 
-## 2. System (RK Health Platform)
+## 2. Authentication
 
-The RK Health platform manages healthcare operations and integrates cloud services.
+### New User
 
-### Responsibilities
+- Click **Register**
+- Enter personal details (Name, Email, Password, Phone Number)
+- Create an account
+- Redirect to the Login page
 
-- Process user requests through Google Apps Script.
-- Store healthcare records in Google Sheets.
-- Generate AI-powered health summaries using the Groq API.
-- Send appointment and medication reminders through Twilio SMS.
-- Generate Google Calendar event links.
-- Maintain dashboard statistics and healthcare reports.
-- Validate user input before processing.
-- Ensure secure and reliable cloud communication.
-- Provide a responsive and user-friendly interface.
+### Existing User
 
----
-
-## 3. Administrator
-
-The Administrator manages the overall application and ensures smooth operation.
-
-### Responsibilities
-
-- Monitor application performance.
-- Maintain backend services.
-- Manage Google Sheets database.
-- Configure Google Apps Script deployment.
-- Manage Groq API and Twilio integration.
-- Monitor system logs and application errors.
-- Ensure data accuracy and consistency.
-- Perform system maintenance and updates.
-- Manage application security and access permissions.
-- Resolve technical issues and monitor cloud services.
+- Click **Login**
+- Enter registered Email and Password
+- Successfully authenticate
+- Redirect to the Home Dashboard
 
 ---
 
-# Role Interaction
+## 3. Home Dashboard
+
+The dashboard serves as the central hub for healthcare management.
+
+Users can:
+
+- View upcoming appointments
+- Check medication reminders
+- Monitor dashboard statistics
+- View recent healthcare activities
+- Access AI-generated health summaries
+- Generate health reports
+
+---
+
+## 4. Appointment Management
+
+Users can:
+
+- Add a new doctor appointment
+- Enter doctor name
+- Select appointment date and time
+- Add visit notes
+- Edit existing appointments
+- Delete appointments
+- View appointment history
+- Add appointments to Google Calendar
+
+---
+
+## 5. Medication Management
+
+Users can:
+
+- Add medication details
+- Enter dosage information
+- Schedule reminder times
+- Update medication records
+- Delete medications
+- Track medication schedules
+
+---
+
+## 6. AI Health Summary
+
+Users can:
+
+- Select an appointment
+- Generate an AI-powered health summary
+- View patient-friendly visit summaries
+- Review recommendations and follow-up guidance
+- Save summaries to the healthcare record
+
+---
+
+## 7. SMS Reminder Service
+
+The system automatically:
+
+- Sends appointment reminders
+- Sends medication reminders
+- Tracks SMS delivery status
+- Updates reminder history
+
+---
+
+## 8. Health Reports
+
+Users can:
+
+- View complete healthcare history
+- Review appointments
+- View medication schedules
+- Read AI-generated summaries
+- Print or download health reports
+
+---
+
+## 9. Activity History
+
+Users can review:
+
+- Appointment history
+- Medication records
+- Reminder history
+- AI summaries
+- Health reports
+- Dashboard statistics
+
+---
+
+## 10. Logout
+
+Users can securely log out of the application to end their session.
+
+---
+
+# Complete Application Workflow
 
 ```text
-Patient
-    │
-    ▼
-RK Health Dashboard
-    │
-    ▼
-Google Apps Script Backend
-    │
-    ├── Google Sheets
-    ├── Groq AI
-    ├── Twilio SMS
-    └── Google Calendar
-    │
-    ▼
-Administrator Monitoring
+User Opens RK Health
+          │
+          ▼
+Register / Login
+          │
+          ▼
+Home Dashboard
+          │
+          ├───────────────┐
+          ▼               ▼
+Appointments      Medications
+          │               │
+          └───────┬───────┘
+                  ▼
+        Google Apps Script
+                  │
+                  ▼
+         Google Sheets Database
+                  │
+      ┌───────────┼─────────────┐
+      ▼           ▼             ▼
+  Groq AI     Twilio SMS   Google Calendar
+      │           │             │
+      └───────────┼─────────────┘
+                  ▼
+        AI Summary & Reports
+                  │
+                  ▼
+          Dashboard Updated
+                  │
+                  ▼
+              User Logout
 ```
+
+---
+
+# Key Functionalities
+
+- User Registration and Login
+- Dashboard Overview
+- Appointment Management
+- Medication Management
+- AI Health Summary Generation
+- SMS Reminder Notifications
+- Google Calendar Integration
+- Health Report Generation
+- Activity Tracking
+- Secure Logout
