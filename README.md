@@ -1,13 +1,108 @@
-## Architecture Description
+## System Architecture
+
+### Description
 
 In this architecture diagram:
 
-The **Frontend** is represented by the **Frontend** section, which includes user interface components such as the Landing Page, Patient Dashboard, Appointment Management, Medication Reminder Management, Health Log Tracking, AI Summary Viewer, and Health Report Dashboard. These components provide an intuitive and responsive interface for users to manage their healthcare activities.
+### Frontend
 
-The **Backend** is represented by the **Google Apps Script Backend** section, which processes client requests, manages business logic, performs CRUD operations for appointments, medications, and health records, generates AI-powered visit summaries, sends SMS reminders through Twilio, and communicates with Google Calendar for appointment scheduling.
+The **Frontend** section represents the user interface developed using **HTML, CSS, and JavaScript**. It provides an interactive dashboard where users can manage healthcare information.
 
-The **Database** section represents **Google Sheets**, which acts as the cloud database for storing patient information, appointment records, medication schedules, health logs, reminder history, and generated health reports.
+Frontend components include:
 
-The **External Services** section includes **Twilio SMS API** for sending medication and appointment reminders, **Google Calendar API** for scheduling and managing appointments, and the **Groq AI API** for generating intelligent healthcare visit summaries and insights.
+- Login Page
+- Home Dashboard
+- Add Patient Entry
+- Appointment Management
+- Medication Management
+- AI Health Summary Viewer
+- Health Report Dashboard
+- Reminder History
+- Notification System
 
-The architecture enables secure communication between the frontend, backend, cloud database, and external services, providing a centralized, automated, and user-friendly healthcare management platform.
+---
+
+### Backend
+
+The **Backend** section is implemented using **Google Apps Script**, which processes all application requests and communicates with external services.
+
+Backend functions include:
+
+- `doGet(e)` – Loads the application.
+- `addLog()` – Stores patient appointments and medication records.
+- `getLogs()` – Retrieves healthcare records.
+- `updateLog()` – Updates patient information.
+- `deleteLog()` – Deletes healthcare records.
+- `getStats()` – Calculates dashboard statistics.
+- `generateSummary()` – Generates AI-powered healthcare summaries using the Groq API.
+- `sendSMS()` – Sends medication and appointment reminders through Twilio.
+- `runOnce()` – Performs scheduled backend operations and initialization.
+
+The backend also integrates with:
+
+- Google Sheets
+- Groq AI API
+- Twilio SMS API
+- Google Calendar API
+
+---
+
+### Database
+
+The **Database** section is implemented using **Google Sheets**, which acts as the cloud database for the application.
+
+It stores:
+
+- Patient Records
+- Appointment Details
+- Medication Schedules
+- Reminder Status
+- AI Health Summaries
+- Health Reports
+- Activity Logs
+- Timestamps
+
+---
+
+### External Services
+
+The application integrates with several cloud services:
+
+- **Groq API** – Generates AI-powered patient-friendly health summaries.
+- **Twilio SMS API** – Sends medication and appointment reminder notifications.
+- **Google Calendar** – Creates appointment events and reminder links.
+- **Google Sheets** – Stores all healthcare records securely.
+
+---
+
+### Application Workflow
+
+```text
+User
+   │
+   ▼
+Frontend Dashboard
+(HTML • CSS • JavaScript)
+   │
+   ▼
+Google Apps Script Backend
+   │
+   ├── Patient Management
+   ├── Appointment Management
+   ├── Medication Management
+   ├── AI Summary Generation
+   ├── Report Generation
+   └── SMS Reminder Service
+   │
+   ▼
+Google Sheets Database
+   │
+   ├───────────────┬─────────────────┐
+   ▼               ▼                 ▼
+Groq AI      Twilio SMS      Google Calendar
+   │               │                 │
+   └───────────────┴─────────────────┘
+                   │
+                   ▼
+          RK Health Dashboard
+```
