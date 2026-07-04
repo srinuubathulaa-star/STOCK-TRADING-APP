@@ -1,51 +1,193 @@
-Description
-client/src/components
-axiosInstance.js → Pre-configured Axios instance for making API calls.
+# Running the Application
 
+Follow the steps below to run the **SB Stocks** application locally.
 
-Login.jsx → Login form component for user authentication.
+---
 
+# Step 1: Set Up the Frontend (React Application)
 
-Navbar.jsx → Navigation bar UI component.
+## Open the Client Folder
 
+Open a terminal and navigate to the client directory.
 
-Register.jsx → Registration form component for new users.
+```bash
+cd client
+```
 
+---
 
- client/src/context
-GeneralContext.jsx → Provides global state/context (like user info, auth state) across the app.
+## Install Dependencies
 
+Install all required packages.
 
- client/src/pages
-Admin.jsx → Admin dashboard page.
+```bash
+npm install
+```
 
+---
 
-AdminStockChart.jsx → Displays stock performance charts for admin.
+## Start the React Development Server
 
+Run the following command:
 
-AllOrders.jsx → Page to view all user orders.
+```bash
+npm run dev
+```
 
+The frontend application will be available at:
 
-AllTransactions.jsx → Page showing all buy/sell transactions.
+```text
+http://localhost:5173
+```
 
+---
 
-History.jsx → Displays user’s past orders and trading history.
+# Step 2: Set Up the Backend (Express Server)
 
+Open a new terminal window or split the existing terminal.
 
-Home.jsx → Main homepage/dashboard for logged-in users.
+Navigate to the server directory.
 
+```bash
+cd ../server
+```
 
-Landing.jsx → Landing page (default public page before login).
+---
 
+## Install Backend Dependencies
 
-Portfolio.jsx → Portfolio page to track user’s holdings and performance.
+```bash
+npm install
+```
 
+---
 
-Profile.jsx → User profile page with account details.
+# Step 3: Configure Environment Variables
 
+Inside the **server** folder, create a file named:
 
-StockChart.jsx → Displays detailed stock price chart for selected stock.
+```text
+.env
+```
 
+Add the required environment variables.
 
-Users.jsx → Admin page to manage/view all registered users.
+Example:
 
+```env
+PORT=8000
+
+MONGO_URI=mongodb://localhost:27017/sbstocks
+
+JWT_SECRET=your_jwt_secret
+
+API_KEY=your_api_key
+```
+
+If you are using MongoDB Atlas:
+
+```env
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/sbstocks
+```
+
+---
+
+# Step 4: Start the Backend Server
+
+Run the backend using Nodemon:
+
+```bash
+nodemon index.js
+```
+
+or
+
+```bash
+npm run dev
+```
+
+The backend server will start at:
+
+```text
+http://localhost:8000
+```
+
+---
+
+# Project Startup Workflow
+
+```text
+Open Terminal
+      │
+      ▼
+cd client
+      │
+      ▼
+npm install
+      │
+      ▼
+npm run dev
+      │
+      ▼
+Frontend Running
+      │
+      ▼
+Open New Terminal
+      │
+      ▼
+cd server
+      │
+      ▼
+npm install
+      │
+      ▼
+Configure .env
+      │
+      ▼
+nodemon index.js
+      │
+      ▼
+Backend Running
+      │
+      ▼
+Connect MongoDB
+      │
+      ▼
+Application Ready
+```
+
+---
+
+# Verify the Setup
+
+Ensure that:
+
+- ✅ React application loads successfully.
+- ✅ Express server starts without errors.
+- ✅ MongoDB connection is established.
+- ✅ Environment variables are loaded correctly.
+- ✅ API endpoints are accessible.
+- ✅ Frontend communicates with the backend.
+
+---
+
+# Technologies Used
+
+- React
+- Vite
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Nodemon
+
+---
+
+# Expected Outcome
+
+After completing these steps:
+
+- The frontend runs on **http://localhost:5173**.
+- The backend runs on **http://localhost:8000**.
+- MongoDB is connected successfully.
+- The SB Stocks application is ready for development and testing.
