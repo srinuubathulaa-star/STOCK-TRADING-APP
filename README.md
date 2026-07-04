@@ -1,159 +1,51 @@
-# MongoDB Schemas
+Description
+client/src/components
+axiosInstance.js → Pre-configured Axios instance for making API calls.
 
-This section defines the MongoDB schemas used in the **SB Stocks** application. The schemas are designed based on the Entity Relationship (ER) Diagram and provide a structured way to store and manage application data.
 
----
+Login.jsx → Login form component for user authentication.
 
-# User Schema
 
-The **User Schema** stores user account information and authentication details.
+Navbar.jsx → Navigation bar UI component.
 
-### Fields
 
-- Username
-- Email
-- Password
-- Contact Number
-- Balance
-- Role
-- Created At
-- Updated At
+Register.jsx → Registration form component for new users.
 
-### Purpose
 
-- Register new users
-- Authenticate users
-- Store account balance
-- Manage user profiles
+ client/src/context
+GeneralContext.jsx → Provides global state/context (like user info, auth state) across the app.
 
----
 
-# Transactions Schema
+ client/src/pages
+Admin.jsx → Admin dashboard page.
 
-The **Transactions Schema** stores all buy and sell transactions performed by users.
 
-### Fields
+AdminStockChart.jsx → Displays stock performance charts for admin.
 
-- User ID
-- Stock ID
-- Transaction Type (Buy/Sell)
-- Quantity
-- Stock Price
-- Total Amount
-- Transaction Time
-- Status
 
-### Purpose
+AllOrders.jsx → Page to view all user orders.
 
-- Record every stock transaction
-- Maintain transaction history
-- Track trading activity
-- Generate reports
 
----
+AllTransactions.jsx → Page showing all buy/sell transactions.
 
-# Stocks Schema
 
-The **Stocks Schema** stores stock market information.
+History.jsx → Displays user’s past orders and trading history.
 
-### Fields
 
-- Stock Symbol
-- Company Name
-- Stock Exchange
-- Current Price
-- Market Sector
-- Market Capitalization
-- Daily Change
-- Historical Prices
-- Last Updated
+Home.jsx → Main homepage/dashboard for logged-in users.
 
-### Purpose
 
-- Store stock details
-- Display market information
-- Provide real-time stock prices
-- Support historical trend analysis
+Landing.jsx → Landing page (default public page before login).
 
----
 
-# Orders Schema
+Portfolio.jsx → Portfolio page to track user’s holdings and performance.
 
-The **Orders Schema** stores user stock orders.
 
-### Fields
+Profile.jsx → User profile page with account details.
 
-- User ID
-- Stock ID
-- Order Type (Buy/Sell)
-- Quantity
-- Price
-- Total Amount
-- Order Status
-- Created Time
 
-### Purpose
+StockChart.jsx → Displays detailed stock price chart for selected stock.
 
-- Manage stock orders
-- Process buy and sell requests
-- Track order status
-- Link orders with transactions
 
----
+Users.jsx → Admin page to manage/view all registered users.
 
-# Database Relationships
-
-```text
-User
- │
- ├──────────────┐
- ▼              ▼
-Transactions   Orders
- │              │
- └──────┬───────┘
-        ▼
-      Stocks
-```
-
----
-
-# Database Collections
-
-The MongoDB database contains the following collections:
-
-- Users
-- Transactions
-- Stocks
-- Orders
-
----
-
-# Benefits
-
-- Organized data storage
-- Easy querying
-- Efficient relationship management
-- Scalable database design
-- Secure user information
-- Fast transaction processing
-
----
-
-# Technologies Used
-
-- MongoDB
-- Mongoose
-- Node.js
-- Express.js
-
----
-
-# Expected Outcome
-
-After implementing these schemas:
-
-- User information is stored securely.
-- Stock data is organized efficiently.
-- Transactions are recorded accurately.
-- Orders are managed effectively.
-- The database supports real-time stock trading operations.
