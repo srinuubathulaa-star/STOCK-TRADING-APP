@@ -1,44 +1,86 @@
-# MongoDB Configuration
+# Connect MongoDB Before Backend Operations
 
-This section explains how to configure MongoDB using Mongoose for the **RK Health – Smart Patient Appointment & Medication Reminder System**.
-
----
-
-## Step 1: Install Mongoose
-
-Open the **Server** folder in Visual Studio Code and install Mongoose by running the following command:
-
-```bash
-npm install mongoose
-```
-
-This installs the Mongoose library, which provides an Object Data Modeling (ODM) layer for MongoDB.
+Before performing any backend operations such as creating appointments, managing medications, generating reports, or handling user authentication, ensure that the application is successfully connected to the MongoDB database.
 
 ---
 
-## Step 2: Create Database Connection
+## Step 1: Create the Database Connection
 
-Create a folder named **config** inside the Server directory.
+Create a file named **db.js** inside the **config** folder.
+
+Project structure:
 
 ```text
 Server/
 │
 ├── config/
 │   └── db.js
+│
+├── controllers/
+├── models/
+├── routes/
+├── index.js
+└── package.json
 ```
-
-The `db.js` file is responsible for:
-
-- Connecting to the MongoDB database.
-- Handling successful database connections.
-- Reporting connection errors.
-- Exporting the database connection.
 
 ---
 
-## Step 3: Configure Environment Variables
+## Step 2: Configure the Database Connection
 
-Create a `.env` file in the Server folder.
+Example connection code:
+
+```javascript
+const mongoose = require("mongoose");
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI);
+
+        console.log("MongoDB Connected Successfully");
+    } catch (error) {
+        console.error("Database Connection Failed:", error.message);
+        process.exit(1);
+    }
+};
+
+module.exports = connectDB;
+```
+
+---
+
+## Step 3: Connect the Database in index.js
+
+Import the database connection before defining routes or starting the server.
+
+Example:
+
+```javascript
+const express = require("express");
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+
+dotenv.config();
+
+connectDB();
+
+const app = express();
+
+app.use(express.json());
+
+// Register Routes Here
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+```
+
+---
+
+## Step 4: Configure Environment Variables
+
+Create a `.env` file inside the **Server** folder.
 
 Example:
 
@@ -46,145 +88,72 @@ Example:
 PORT=5000
 
 MONGODB_URI=mongodb://localhost:27017/rk_health
-
-JWT_SECRET=your_jwt_secret
 ```
 
 For MongoDB Atlas:
 
 ```env
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/rk_health
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/rk_health
 ```
 
 ---
 
-## Step 4: Create Schemas and Models
-
-Create a folder named **models**.
+## Backend Startup Flow
 
 ```text
-Server/
-│
-├── models/
-│   ├── userModel.js
-│   ├── appointmentModel.js
-│   ├── medicationModel.js
-│   ├── reportModel.js
-│   └── summaryModel.js
-```
-
-### User Model
-
-Stores:
-
-- Name
-- Email
-- Password
-- Phone Number
-- Role
-
----
-
-### Appointment Model
-
-Stores:
-
-- Patient Name
-- Doctor Name
-- Appointment Date
-- Appointment Time
-- Visit Notes
-- Status
-
----
-
-### Medication Model
-
-Stores:
-
-- Medicine Name
-- Dosage
-- Reminder Time
-- Phone Number
-- Reminder Status
-
----
-
-### Report Model
-
-Stores:
-
-- Patient Information
-- Appointment History
-- Medication Records
-- AI Summary
-- Report Date
-
----
-
-### Summary Model
-
-Stores:
-
-- Appointment Details
-- AI Health Summary
-- Follow-up Recommendations
-- Generated Timestamp
-
----
-
-## Step 5: Verify the Database Connection
-
-After starting the server, verify that:
-
-- MongoDB connection is successful.
-- Collections are created automatically.
-- Schemas are registered correctly.
-- Models are available throughout the application.
-
----
-
-# Project Structure
-
-```text
-Server/
-│
-├── config/
-│   └── db.js
-│
-├── models/
-│   ├── userModel.js
-│   ├── appointmentModel.js
-│   ├── medicationModel.js
-│   ├── reportModel.js
-│   └── summaryModel.js
-│
-├── controllers/
-├── routes/
-├── middlewares/
-├── index.js
-├── package.json
-└── .env
+Start Server
+      │
+      ▼
+Load Environment Variables
+      │
+      ▼
+Connect MongoDB
+      │
+      ▼
+Connection Successful
+      │
+      ▼
+Initialize Express Server
+      │
+      ▼
+Register Middleware
+      │
+      ▼
+Register Routes
+      │
+      ▼
+Server Ready
 ```
 
 ---
 
-# Technologies Used
+## Why Connect First?
 
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- dotenv
+Connecting to MongoDB before handling requests ensures that:
+
+- Database operations execute successfully.
+- Data is stored and retrieved reliably.
+- Backend routes have access to the database.
+- Errors are detected early during server startup.
+- The application remains stable and consistent.
 
 ---
 
-# Expected Outcome
+## Verification Checklist
+
+- Mongoose installed successfully.
+- `.env` file configured.
+- MongoDB connection established.
+- Server starts without errors.
+- Database models are accessible.
+- Backend APIs are ready for CRUD operations.
+
+---
+
+## Expected Outcome
 
 After completing these steps:
 
-- Mongoose is installed successfully.
-- MongoDB is connected to the application.
-- Environment variables are configured securely.
-- Database schemas and models are created.
-- The RK Health backend is ready to store and manage healthcare data.
+- MongoDB is connected before the server starts.
+- Backend APIs can safely perform database operations.
+- RK Health is ready to manage patient records, appointments, medications, AI summaries, and health reports.
