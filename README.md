@@ -1,72 +1,105 @@
-# Project Setup
+# React Frontend Setup
 
-Before starting development, organize the project directory by creating separate folders for the frontend and backend.
+This section explains how to set up the React frontend for the **RK Health – Smart Patient Appointment & Medication Reminder System** using Vite.
 
-## Step 1: Create the Project Folder
+---
 
-Create a new folder for the project.
+## Step 1: Open the Client Folder
 
-Example:
+Open the **Client** folder in Visual Studio Code.
+
+Open the integrated terminal by selecting:
 
 ```text
-RK-Health/
+Terminal → New Terminal
 ```
 
 ---
 
-## Step 2: Create Frontend Folder
+## Step 2: Create a React Project Using Vite
 
-Inside the project folder, create a folder named:
+Run the following command inside the **Client** folder:
 
-```text
-Client
+```bash
+npm create vite@latest . -- --template react
 ```
-
-This folder will contain all frontend files such as:
-
-- HTML
-- CSS
-- JavaScript
-- Images
-- Assets
 
 ---
 
-## Step 3: Create Backend Folder
+## Step 3: Select the Framework
 
-Inside the project folder, create another folder named:
+When prompted, select:
 
 ```text
-Server
+Framework:
+React
 ```
-
-This folder will contain all backend files such as:
-
-- Google Apps Script
-- Configuration files
-- API logic
-- Backend utilities
 
 ---
 
-## Step 4: Project Structure
+## Step 4: Select the Variant
 
-After creating the folders, your project structure should look like:
+Choose the JavaScript variant:
+
+```text
+Variant:
+JavaScript
+```
+
+---
+
+## Step 5: Install Project Dependencies
+
+Install all required packages:
+
+```bash
+npm install
+```
+
+---
+
+## Step 6: Start the Development Server
+
+Run the following command:
+
+```bash
+npm run dev
+```
+
+---
+
+## Step 7: Open the Application
+
+After the server starts successfully, Vite will display a local development URL similar to:
+
+```text
+Local: http://localhost:5173/
+```
+
+Open the URL in your web browser to view the application.
+
+---
+
+# Project Structure
 
 ```text
 RK-Health/
 │
 ├── Client/
-│   ├── index.html
-│   ├── style.css
-│   ├── script.js
-│   ├── config.js
-│   └── assets/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   ├── package.json
+│   ├── vite.config.js
+│   └── index.html
 │
 ├── Server/
-│   ├── Code.gs
-│   ├── appsscript.json
-│   └── utils.gs
 │
 ├── README.md
 └── .gitignore
@@ -74,20 +107,33 @@ RK-Health/
 
 ---
 
-## Step 5: Open the Project in Visual Studio Code
+# Verify the Setup
 
-1. Open **Visual Studio Code**.
-2. Select **File → Open Folder**.
-3. Choose the **RK-Health** project folder.
-4. Click **Open**.
+Ensure that:
 
-The project is now ready for development.
+- ✅ React project is created successfully.
+- ✅ All npm packages are installed.
+- ✅ Vite development server starts without errors.
+- ✅ The application loads in the browser.
+- ✅ Hot Module Replacement (HMR) works correctly.
 
 ---
 
-## Expected Outcome
+# Technologies Used
 
-- Project folder created successfully.
-- Separate **Client** and **Server** directories organized.
-- Frontend and backend code managed independently.
-- Project opened in Visual Studio Code and ready for development.
+- React
+- Vite
+- JavaScript (ES6+)
+- Node.js
+- npm
+
+---
+
+# Expected Outcome
+
+After completing these steps:
+
+- A React application is created using Vite.
+- All dependencies are installed.
+- The development server is running successfully.
+- The RK Health frontend is ready for further development.
