@@ -1,174 +1,27 @@
-# Application Workflow
+Description
+The SB Stocks application follows the Model-View-Controller (MVC) architectural pattern, a software design approach that separates an application into three interconnected layers. This separation allows for modularity, easier maintenance, and scalability.
 
-## 1. Entry Point
+Model Layer (Data Layer)
 
-The user visits the **RK Health** web application using a desktop, tablet, or mobile browser.
+The Model layer is responsible for handling all data-related logic. This includes the definition of data schemas and the operations performed on the database using those schemas. The models are implemented using Mongoose, which provides a schema-based solution to model application data for MongoDB.
 
----
+Controller Layer
 
-## 2. Authentication
+The Controller layer acts as an intermediary between the view (routes) and the model. It receives incoming requests, processes the input (which may include validation or transformation), calls the appropriate methods from the model, and then returns a response to the client.
 
-### New User
+View Layer (Routing Layer)
 
-- Click **Register**
-- Enter personal details (Name, Email, Password, Phone Number)
-- Create an account
-- Redirect to the Login page
+In the context of a backend REST API, the View is implemented as the routing layer, where various endpoints are defined. These endpoints determine how the backend responds to different HTTP requests (GET, POST, PUT, DELETE) and are responsible for invoking the appropriate controller functions.
 
-### Existing User
+Advantages of Using MVC in This Project
 
-- Click **Login**
-- Enter registered Email and Password
-- Successfully authenticate
-- Redirect to the Home Dashboard
+Separation of Concerns: Each layer has a clearly defined responsibility, improving readability and maintainability.
 
----
+Scalability: New features can be added easily by creating new routes, controllers, and models.
 
-## 3. Home Dashboard
+Reusability: Logic in controllers and models can be reused across multiple parts of the application.
 
-The dashboard serves as the central hub for healthcare management.
+Testing: Each layer can be tested independently, especially the controllers and models.
 
-Users can:
+Collaboration-Friendly: Multiple developers can work simultaneously on different layers without conflict.
 
-- View upcoming appointments
-- Check medication reminders
-- Monitor dashboard statistics
-- View recent healthcare activities
-- Access AI-generated health summaries
-- Generate health reports
-
----
-
-## 4. Appointment Management
-
-Users can:
-
-- Add a new doctor appointment
-- Enter doctor name
-- Select appointment date and time
-- Add visit notes
-- Edit existing appointments
-- Delete appointments
-- View appointment history
-- Add appointments to Google Calendar
-
----
-
-## 5. Medication Management
-
-Users can:
-
-- Add medication details
-- Enter dosage information
-- Schedule reminder times
-- Update medication records
-- Delete medications
-- Track medication schedules
-
----
-
-## 6. AI Health Summary
-
-Users can:
-
-- Select an appointment
-- Generate an AI-powered health summary
-- View patient-friendly visit summaries
-- Review recommendations and follow-up guidance
-- Save summaries to the healthcare record
-
----
-
-## 7. SMS Reminder Service
-
-The system automatically:
-
-- Sends appointment reminders
-- Sends medication reminders
-- Tracks SMS delivery status
-- Updates reminder history
-
----
-
-## 8. Health Reports
-
-Users can:
-
-- View complete healthcare history
-- Review appointments
-- View medication schedules
-- Read AI-generated summaries
-- Print or download health reports
-
----
-
-## 9. Activity History
-
-Users can review:
-
-- Appointment history
-- Medication records
-- Reminder history
-- AI summaries
-- Health reports
-- Dashboard statistics
-
----
-
-## 10. Logout
-
-Users can securely log out of the application to end their session.
-
----
-
-# Complete Application Workflow
-
-```text
-User Opens RK Health
-          │
-          ▼
-Register / Login
-          │
-          ▼
-Home Dashboard
-          │
-          ├───────────────┐
-          ▼               ▼
-Appointments      Medications
-          │               │
-          └───────┬───────┘
-                  ▼
-        Google Apps Script
-                  │
-                  ▼
-         Google Sheets Database
-                  │
-      ┌───────────┼─────────────┐
-      ▼           ▼             ▼
-  Groq AI     Twilio SMS   Google Calendar
-      │           │             │
-      └───────────┼─────────────┘
-                  ▼
-        AI Summary & Reports
-                  │
-                  ▼
-          Dashboard Updated
-                  │
-                  ▼
-              User Logout
-```
-
----
-
-# Key Functionalities
-
-- User Registration and Login
-- Dashboard Overview
-- Appointment Management
-- Medication Management
-- AI Health Summary Generation
-- SMS Reminder Notifications
-- Google Calendar Integration
-- Health Report Generation
-- Activity Tracking
-- Secure Logout
